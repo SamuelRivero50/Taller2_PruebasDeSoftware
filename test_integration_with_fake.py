@@ -1,7 +1,9 @@
 from order_service import create_order
-from database import SessionLocal
+from database import SessionLocal, Base, engine
 from models import Order
 from user_repository import FakeUserRepository
+
+Base.metadata.create_all(bind=engine)
 
 # ---- Fake usado en la APP ----
 class FakeUserRepository:

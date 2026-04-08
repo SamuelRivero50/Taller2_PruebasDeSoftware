@@ -1,6 +1,8 @@
 from order_service import create_order
-from database import SessionLocal
+from database import SessionLocal, Base, engine
 from models import Order
+
+Base.metadata.create_all(bind=engine)
 
 class StubUserRepository:
     def get_user_email(self, user_id):
